@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+</head>
+<body>
+    <table name="converter">
+        <tr>
+            <td>
+                <label>Amount</label>
+            </td>
+            <td>
+                <label>From Currency</label>
+            </td>
+            <td>
+                <label>To Currency</label>
+            </td>
+            <td>
+                <label></label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input id="nhap" type="number">
+            </td>
+            <td>
+                <select id="s1">
+                    <option value="usd" onchange="usdConverter()">USD</option>
+                    <option value="vnd" onchange="vndConverter()">VND</option>
+                </select>
+            </td>
+            <td>
+                <select id="s2">
+                    <option value="vnd" onchange="vndConverter()">VND</option>
+                    <option value="usd" onchange="usdConverter()">USD</option>
+
+                </select>
+            </td>
+            <td>
+                <button type ="button" onclick="myfunction()">Converter</button>
+            </td>
+        </tr>
+    </table>
+    <p id="demo"></p>
+    <script>
+
+    function myfunction() {
+        let input = parseInt(nhap.value);
+        let from = document.getElementById("s1").value;
+        let to = document.getElementById("s2").value;
+        if (from == to) {
+            document.getElementById("demo").innerHTML ="Result: " + input;
+        }
+        if (from == "usd" & to == "vnd"){
+            document.getElementById("demo").innerHTML ="Result: " + (input*23000);
+        }
+        if (from == "vnd" & to == "usd"){
+            document.getElementById("demo").innerHTML ="Result: " + (input/23000);
+        }
+    }
+    </script>
+</body>
+</html>
